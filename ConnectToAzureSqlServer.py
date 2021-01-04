@@ -9,4 +9,7 @@ conn = pyodbc.connect('Driver={SQL Server};'
 
 cursor = conn.cursor()
 
-print(type(cursor))
+query_top_100 = cursor.execute("Select top 100 * from stock_prices where stock_ticker_name='HDFC'")
+
+for i in query_top_100:
+    print(i)
